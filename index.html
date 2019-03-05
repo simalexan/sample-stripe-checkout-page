@@ -32,7 +32,7 @@
 
   <script>
     var handler = StripeCheckout.configure({
-      key: 'pk_test_MdNj1II0dkbZz7sYzAMwJYkJ',
+      key: 'YOUR STRIPE PUBLIC KEy',
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       token: function (token) {
@@ -40,7 +40,7 @@
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
 
-        var API_URL = `https://p8yleu76f8.execute-api.us-east-1.amazonaws.com/prod/charge`;
+        var API_URL = `YOUR_API_URL`;
         postData(API_URL, 
           { 
             stripeToken: token.id, 
