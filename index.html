@@ -47,8 +47,7 @@
             email: token.email,
             amount: 1000,
             currency: 'USD',
-            description: 'Seedling charge',
-            capture: false
+            description: 'Seedling charge'
           }
         ).then(response => {
           chargeId = response.createdCharge.id;
