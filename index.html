@@ -24,7 +24,11 @@
         <button id="buy-me" type="button" class="btn btn-primary">Buy</button>
       </div>
     </div>
-    <button id="capture-charge" type="button" class="btn btn-primary">Capture Charge (only if you've applied capture)</button>
+    <button id="capture-charge" type="button" class="btn btn-primary">Capture Charge (only if you've applied charge)</button>
+    <div>
+        <button id="refund-charge" type="button" class="btn btn-primary">Refund Charge (only if you've applied charge)</button>
+    </div>
+    
   </div>
 
   <script src="https://checkout.stripe.com/checkout.js"></script>
@@ -72,10 +76,23 @@
       var API_URL = `https://fallb557ic.execute-api.us-east-1.amazonaws.com/prod/capture`;
         postData(API_URL, 
           { 
-            charge: chargeId
+            chargeId: chargeId
           }
         )
       e.preventDefault();
+    });
+
+    document.getElementById('refund-charge').addEventListener('click', function (e) {
+
+    console.log(chargeId);
+    // Open Checkout with further options:
+    var API_URL = `https://fallb557ic.execute-api.us-east-1.amazonaws.com/prod/refund`;
+      postData(API_URL, 
+        { 
+          chargeId: chargeId
+        }
+      )
+    e.preventDefault();
     });
 
     // Close Checkout on page navigation:
